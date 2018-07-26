@@ -1,0 +1,20 @@
+{
+  "name": "cernify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "contributors": [{
+    "name": "Jace Warren",
+    "email": "keatz55@gmail.com",
+    "url": "https://github.com/keatz55"
+  }],
+  "workspaces": {
+    "packages": [
+      "api",
+      "app",
+      "sys-admin"
+    ],
+    "nohoist": ["**/react-scripts", "**/react-scripts/**", "**/react-scripts-ts", "**/react-scripts-ts/**"]
+  }
+}
