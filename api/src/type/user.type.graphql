@@ -1,0 +1,16 @@
+type User implements Node {
+  avatar: String
+  bio: String
+  createdAt: DateTime!
+  deactivatedAt: DateTime!
+  drafts: [Post]
+  email: String @unique
+  followers: [User]
+  following: [User]
+  fullName: String
+  guid: ID! @unique
+  id: ID! @unique
+  posts: [Post!]! @relation(name: "Posts", onDelete: CASCADE)
+  updatedAt: DateTime!
+  username: String @unique
+}
