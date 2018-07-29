@@ -1,0 +1,6 @@
+interface Node {
+  createdAt: DateTime!
+  guid: ID! @unique
+  id: ID! @unique
+  updatedAt: DateTime!
+}

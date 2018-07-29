@@ -4,11 +4,28 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "nodemon --exec ts-node src/server.ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
   "dependencies": {
     "apollo-server-express": "^2.0.0",
     "express": "^4.16.3",
+    "faker": "^4.1.0",
     "glob": "^7.1.2",
+    "graphql": "^0.13.2",
     "graphql-tools": "^3.0.5",
     "merge-graphql-schemas": "^1.5.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/faker": "^4.1.2",
+    "@types/glob": "^5.0.35",
+    "nodemon": "^1.18.3",
+    "ts-jest": "^23.0.1",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
   }
 }
