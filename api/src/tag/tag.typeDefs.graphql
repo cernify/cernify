@@ -1,0 +1,13 @@
+type Tag implements Node {
+  createdAt: DateTime!
+  guid: ID!
+  id: ID!
+  isActive: Boolean
+  isApproved: Boolean
+  logo: String
+  mergedWith: Tag
+  name: String!
+  numPosts: Int
+  slug: String!
+  updatedAt: DateTime!
+}

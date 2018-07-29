@@ -1,0 +1,51 @@
+enum PostType {
+  DRAFT
+  HISTORY
+  PUBLISHED
+}
+
+enum PostVariant {
+  QUESTION
+  TEXT
+}
+
+input PostInput {
+  content: String
+  description: String
+  guid: ID
+  id: ID
+  title: String
+  type: PostType
+}
+
+type Post implements Node {
+  authors(page: Int, limit: Int): [User]!
+  content: String
+  createdAt: DateTime!
+  createdBy: User!
+  description: String
+  draft: Post!
+  guid: ID!
+  revisions(page: Int, limit: Int): [Post]
+  id: ID!
+  points: Int
+  score: Float
+  tags: [Tag]
+  title: String
+  type: PostType!
+  updatedAt: DateTime!
+  updatedBy: User!
+  variant: PostVariant!
+  views: Int
+}
+
+type Query {
+  posts(page: Int, limit: Int): [Post]!
+  post(guid: ID!): Post!
+}
+
+type Mutation {
+  createPost(post: PostInput!): Post
+  deletePost(guid: ID!): Boolean
+  updatePost(post: PostInput!): Post
+}

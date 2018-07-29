@@ -1,0 +1,38 @@
+input UserInput {
+  avatar: String
+  bio: String
+  email: String
+  fullName: String
+  guid: ID
+  id: ID
+  username: String @unique
+}
+
+type User implements Node {
+  avatar: String
+  bio: String
+  createdAt: DateTime!
+  deactivatedAt: DateTime!
+  drafts(page: Int, limit: Int): [Post]
+  email: String @unique
+  followers(page: Int, limit: Int): [User]
+  following(page: Int, limit: Int): [User]
+  fullName: String
+  guid: ID! @unique
+  id: ID! @unique
+  posts(page: Int, limit: Int): [Post]
+  updatedAt: DateTime!
+  username: String @unique
+  revisions(page: Int, limit: Int): [Post]
+}
+
+type Query {
+  users(page: Int, limit: Int): [User]!
+  user(guid: ID!): User!
+}
+
+type Mutation {
+  createUser(user: UserInput!): User
+  updateUser(user: UserInput!): User
+  deleteUser(guid: ID!): Boolean
+}
